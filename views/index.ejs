@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MY APP</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" integrity="sha384-IJLmUY0f1ePPX6uSCJ9Bxik64/meJmjSYD7dHaJqTXXEBE4y+Oe9P2KBZa/z7p0Q" crossorigin="anonymous">
+  
+  <style type="text/css" media="screen">
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    #wrapper {
+      flex: 1;
+    }
+  </style>
+
+</head>
+<body>
+    <main id="wrapper">
+        <div class="container">
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <p class="title">STAR WARS QUOTES</p>
+                    <p class="subtitle">Nodejs + Mongodb Atlas simple CRUD example</p>
+                </div>
+            </section>
+            <section class="section is-larg">
+                <h1 class="title">ADD NEW STARWARS QUOTE</h1>
+                <p class="subtitle">This app is part of a special StarWars.com series in honor of Star Wars‘ 40th anniversary on May 25. Insert your favorite Quote from movie. </p>
+                <form action="/quotes" method="POST">
+                    <section class="field">                        
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input class="input" type="text" placeholder="name" name="name">
+                            </p>                            
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <textarea class="textarea" type="textarea" rows="3" placeholder="quote" name="quote"></textarea>
+                            </p>                           
+                        </div>
+                        <div class="field">
+                            <button class="button is-primary" type="submit">Add New Quote</button>
+                        </div>                                                
+                    </section>
+                </form>
+            </section>  
+            <section class="section">
+                <div class="content">
+                    <% quotes.forEach(quote => { %>
+                        <blockquote>                            
+                            <strong><%- quote.name %></strong> - <em><%- quote.quote %></em>                          
+                        </blockquote>
+                    <% }); %>    
+                    <button class="button" id="update-button">Replace Yoda's quote</button>            
+                </ul>
+            </section>      
+        </div>    
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+              </p>
+            </div>
+        </footer>
+    </main>    
+    <script src="/main.js"></script>
+</body>
+</html>
